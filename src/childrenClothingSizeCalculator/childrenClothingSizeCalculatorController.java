@@ -29,9 +29,9 @@ public class childrenClothingSizeCalculatorController {
         return clothingSize;
     }
 
-    private float calculateGrowthCoeffizient() {
-        growthCoefficientCalculator growthCalculator = new growthCoefficientCalculator();
-        float growthCoefficient = growthCalculator.calulateGrowthCoefficient(this.height, this.waist, this.hips);
+    private float calculateGrowthCoeffizient() throws Exception {
+        growthCoefficientCalculatorModel growthCalculator = new growthCoefficientCalculatorModel();
+        float growthCoefficient = growthCalculator.calculateGrowthCoefficient(this.height, this.waist, this.hips);
         return growthCoefficient;
     }
 
