@@ -7,6 +7,6 @@ public interface messagesService {
     }
 
     default void logInputToConsole(float inputFloat, String inputText) {
-        System.out.println("The " + inputText + " of your kid is " + inputFloat + "!");
+        System.out.println("The " + inputText + " of your kid is " + inputFloat + "!\n");
     }
 }

@@ -1,5 +1,7 @@
 package childrenClothingSizeCalculator;
 
+import java.text.DecimalFormat;
+
 public class childrenClothingSizeCalculatorController {
     private float height;
     private float waist;
@@ -10,8 +12,7 @@ public class childrenClothingSizeCalculatorController {
 
     public void startCalulator() throws Exception {
         this.getInputFromConsole();
-        this.calculateSize();
-        this.calculateGrowthCoeffizient();
+        this.displayOutputMessageViaConsoleView();
     }
 
     private void getInputFromConsole() {
@@ -22,17 +23,32 @@ public class childrenClothingSizeCalculatorController {
         this.hips = inputScanner.getHips();
     }
 
-    private void calculateSize() throws Exception {
+    private float calculateSize() throws Exception {
         clothingSizeCalulatorModel clothingSizeCalulator = new clothingSizeCalulatorModel();
-        clothingSizeCalulator.getClothingSize(this.height);
+        float clothingSize = clothingSizeCalulator.getClothingSize(this.height);
+        return clothingSize;
     }
 
-    private float calculateGrowthCoeffizient(){
-        growthCoefficientCalculator growthCalulator  = new growthCoefficientCalculator();
-        float growthCoefficient = growthCalulator.calulateGrowthCoefficient(this.height, this.waist, this.hips);
-        System.out.println(growthCoefficient);
+    private float calculateGrowthCoeffizient() {
+        growthCoefficientCalculator growthCalculator = new growthCoefficientCalculator();
+        float growthCoefficient = growthCalculator.calulateGrowthCoefficient(this.height, this.waist, this.hips);
         return growthCoefficient;
     }
 
+    private String calculateValuesAndFormulateMessage() throws Exception {
+        float clothingSize = this.calculateSize();
+        float growthCoefficient = this.calculateGrowthCoeffizient();
+        String formattedGrowthCoefficient = new DecimalFormat("#.##").format(growthCoefficient);
+        String outputMessage = "The clothingsize of your kid is: " + clothingSize + "!\n" +
+                "The growth coefficient of your kid is: " + formattedGrowthCoefficient + "!\n" +
+                "Thank you for using our product!";
+        return outputMessage;
+    }
+
+    private void displayOutputMessageViaConsoleView() throws Exception {
+        consoleView consoleView = new consoleView();
+        String outputMessage = calculateValuesAndFormulateMessage();
+        consoleView.consoleOutput(outputMessage);
+    }
 
 }

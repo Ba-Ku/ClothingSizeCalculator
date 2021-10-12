@@ -13,7 +13,6 @@ public class scannerModel implements messagesService {
     public void getInputFromConsole() {
 
         Scanner consoleInputScanner = new Scanner(System.in);
-
         try {
             enterMessage("height");
             this.height = consoleInputScanner.nextFloat();
