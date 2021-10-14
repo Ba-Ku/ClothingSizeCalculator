@@ -10,7 +10,7 @@ public class childrenClothingSizeCalculatorController {
     public childrenClothingSizeCalculatorController() {
     }
 
-    public void startCalulator() throws Exception {
+    public void startCalculator() throws Exception {
         this.getInputFromConsole();
         this.displayOutputMessageViaConsoleView();
     }
@@ -24,12 +24,12 @@ public class childrenClothingSizeCalculatorController {
     }
 
     private float calculateSize() throws Exception {
-        clothingSizeCalulatorModel clothingSizeCalulator = new clothingSizeCalulatorModel();
-        float clothingSize = clothingSizeCalulator.getClothingSize(this.height);
+        clothingSizeCalculatorModel clothingSizeCalculator = new clothingSizeCalculatorModel();
+        float clothingSize = clothingSizeCalculator.getClothingSize(this.height);
         return clothingSize;
     }
 
-    private float calculateGrowthCoeffizient() throws Exception {
+    private float calculateGrowthCoefficient() throws Exception {
         growthCoefficientCalculatorModel growthCalculator = new growthCoefficientCalculatorModel();
         float growthCoefficient = growthCalculator.calculateGrowthCoefficient(this.height, this.waist, this.chest);
         return growthCoefficient;
@@ -37,7 +37,7 @@ public class childrenClothingSizeCalculatorController {
 
     private String calculateValuesAndFormulateMessage() throws Exception {
         float clothingSize = this.calculateSize();
-        float growthCoefficient = this.calculateGrowthCoeffizient();
+        float growthCoefficient = this.calculateGrowthCoefficient();
         String formattedGrowthCoefficient = new DecimalFormat("#.##").format(growthCoefficient);
         String outputMessage = "The clothingsize of your kid is: " + clothingSize + "!\n" +
                 "The growth coefficient of your kid is: " + formattedGrowthCoefficient + "!\n" +

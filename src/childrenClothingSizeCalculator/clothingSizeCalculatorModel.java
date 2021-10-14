@@ -1,6 +1,6 @@
 package childrenClothingSizeCalculator;
 
-public class clothingSizeCalulatorModel {
+public class clothingSizeCalculatorModel {
 
     public float getClothingSize(float heightInput) throws Exception {//Grenzwerttest
         float clothingSize=0;
@@ -37,7 +37,7 @@ public class clothingSizeCalulatorModel {
             clothingSize = 176;
         } else if (heightInput > 176) {
             throw new Exception("The inputvalue for height does not match with common sizes for childrensclothing! May we suggest searching for adultclothing?");
-        } else if(clothingSize == 0){ //um die notwendige Initialisierung als Fehlerfall zu deklarieren.
+        } else if(clothingSize == 0){ //um die notwendige Initialisierung als Fehlerfall zu deklarieren und alle oben nicht deklarierten Fehlerfälle zusammenzufassen (obwohl Scannerprüflogik diese nicht zulassen sollte)
             throw new Exception("Unexpected Error!");
         }
         return clothingSize;
