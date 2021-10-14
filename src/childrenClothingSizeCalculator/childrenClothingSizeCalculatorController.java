@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class childrenClothingSizeCalculatorController {
     private float height;
     private float waist;
-    private float hips;
+    private float chest;
 
     public childrenClothingSizeCalculatorController() {
     }
@@ -20,7 +20,7 @@ public class childrenClothingSizeCalculatorController {
         inputScanner.getInputFromConsole();
         this.height = inputScanner.getHeight();
         this.waist = inputScanner.getWaist();
-        this.hips = inputScanner.getHips();
+        this.chest = inputScanner.getChest();
     }
 
     private float calculateSize() throws Exception {
@@ -31,7 +31,7 @@ public class childrenClothingSizeCalculatorController {
 
     private float calculateGrowthCoeffizient() throws Exception {
         growthCoefficientCalculatorModel growthCalculator = new growthCoefficientCalculatorModel();
-        float growthCoefficient = growthCalculator.calculateGrowthCoefficient(this.height, this.waist, this.hips);
+        float growthCoefficient = growthCalculator.calculateGrowthCoefficient(this.height, this.waist, this.chest);
         return growthCoefficient;
     }
 
