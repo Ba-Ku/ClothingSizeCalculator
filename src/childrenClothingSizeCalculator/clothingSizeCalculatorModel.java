@@ -29,7 +29,7 @@ public class clothingSizeCalculatorModel {
             clothingSize = 146;
         } else if (heightInput <= 152) {
             clothingSize = 152;
-        } else if (heightInput < 158) {
+        } else if (heightInput <= 158) {
             clothingSize = 158;
         } else if (heightInput <= 164) {
             clothingSize = 164;
