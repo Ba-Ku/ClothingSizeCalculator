@@ -2,7 +2,6 @@ package childrenClothingSizeCalculator.test;
 
 import childrenClothingSizeCalculator.clothingSizeCalculatorModel;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class clothingSizeCalculatorModelTest {

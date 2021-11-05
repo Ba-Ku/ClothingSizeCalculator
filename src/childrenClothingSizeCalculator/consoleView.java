@@ -4,9 +4,9 @@ public class consoleView {
 
     public void consoleOutput(String input) {
         try {
-            System.out.println(input);
+            System.out.print(input);
         } catch (Exception exception) {
-            System.out.println(exception.getMessage());
+            System.out.print(exception.getMessage());
         }
     }
 
