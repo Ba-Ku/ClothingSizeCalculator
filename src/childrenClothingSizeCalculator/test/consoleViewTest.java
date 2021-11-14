@@ -4,7 +4,6 @@ import childrenClothingSizeCalculator.consoleView;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -31,14 +30,9 @@ class consoleViewTest {
 
     @Test
     public void consoleOutputTest(){
-
         consoleViewUnderTest.consoleOutput(validInputString);
-        //System.out.print(validInputString);//wieder durch oberes ersetzen
         assertEquals(validInputString, outContent.toString());
 
-
-        //assertEquals(correctString, consoleViewUnderTest.consoleOutput(validInputString));
-        // ich teste hier einen string output - das ganze ist aber ein log auf die console - wie ist hier der testfall?
     }
 
 }

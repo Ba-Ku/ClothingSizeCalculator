@@ -2,7 +2,7 @@ package childrenClothingSizeCalculator;
 
 import java.text.DecimalFormat;
 
-public class childrenClothingSizeCalculatorController {
+public class childrenClothingSizeCalculatorController implements messagesService{
     private float height;
     private float waist;
     private float chest;
@@ -39,9 +39,7 @@ public class childrenClothingSizeCalculatorController {
         float clothingSize = this.calculateSize();
         float growthCoefficient = this.calculateGrowthCoefficient();
         String formattedGrowthCoefficient = new DecimalFormat("#.##").format(growthCoefficient);
-        String outputMessage = "The clothingsize of your kid is: " + clothingSize + "!\n" +
-                "The growth coefficient of your kid is: " + formattedGrowthCoefficient + "!\n" +
-                "Thank you for using our product!";
+        String outputMessage = outputMessage(clothingSize, formattedGrowthCoefficient);
         return outputMessage;
     }
 
