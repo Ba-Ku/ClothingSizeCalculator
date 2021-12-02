@@ -2,7 +2,7 @@ package childrenClothingSizeCalculator;
 
 import java.util.Scanner;
 
-public class scannerModel implements messagesService {
+public class scannerModel implements messagesService, checkValuesService {
     private float height;
     private float waist;
     private float chest;
@@ -31,21 +31,29 @@ public class scannerModel implements messagesService {
         consoleInputScanner.close();
     }
 
-    private void checkNumberAboveZeroAndLogToConsole(float number, String numberDescription) throws Exception {
-        if (number <= 0) {
-            throw new Exception("Number has to be bigger than 0!");
+    private void checkNumberAboveZeroAndLogToConsole(float number, String valueDescriptionForNumber) throws Exception {
+        /*if (number <= 0) {
+            throw new Exception("Number has to be bigger than 0!");//Ich habe diese Methode in ein Interface ausgelagert(Testbarkeit) - zur besseren Verständlichkeit lasse ich sie aber auch auskommentiert hier stehen.
         } else {
             logInputToConsole(number, numberDescription);
+        }*/
+        boolean numberIsAboveZero = checkIfNumberIsAboveZero(number);
+        checkIfValuesAreInbound(number, valueDescriptionForNumber);
+        if (numberIsAboveZero == true) {
+            logInputToConsole(number, valueDescriptionForNumber);
         }
     }
 
     private float checkIfInputIsDigitAndScanFromConsole(Scanner inputScanner) throws Exception {
-        if (inputScanner.hasNextFloat()) {
-            float outputValue = inputScanner.nextFloat();
+        /*if (inputScanner.hasNextFloat()) {
+            float outputValue = inputScanner.nextFloat();//Ich habe diese Methode in ein Interface ausgelagert(Testbarkeit) - zur besseren Verständlichkeit lasse ich sie aber auch auskommentiert hier stehen.
             return outputValue;
         } else {
             throw new Exception("Input has to be a number!");
-        }
+        }*/
+        checkIfInputIsDigit(inputScanner);
+        float outputValue = inputScanner.nextFloat();
+        return outputValue;
     }
 
     public float getHeight() {
